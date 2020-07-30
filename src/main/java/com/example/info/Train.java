@@ -5,33 +5,33 @@ import org.springframework.data.annotation.Id;
 public class Train {
     @Id
     public String id;
-
-    public String Train_Number;
-    public String Train_Name;
-    public Integer available_class_A_seats;
-    public Integer available_class_B_seats;
-    public Integer available_class_C_seats;
-    public Integer booked_class_A_seats;
-    public Integer booked_class_B_seats;
-    public Integer booked_class_C_seats;
+    public String trainNumber;
+    public String trainName;
+    public seats available;
+    public seats booked;
     public String source;
     public String destination;
-    public Float fare;
+    public float fare;
 
-    public Train(){}
+    Train(){}
 
-    public Train(String num,String name,Integer A,Integer B,Integer C,Integer b_A,Integer b_B,Integer b_C,String
-                 src,String dst,Float f){
-        this.Train_Number=num;
-        this.Train_Name=name;
-        this.available_class_A_seats=A;
-        this.available_class_B_seats=B;
-        this.available_class_C_seats=C;
-        this.booked_class_A_seats=b_A;
-        this.booked_class_B_seats=b_B;
-        this.booked_class_C_seats=b_C;
-        this.source=src;
-        this.destination=dst;
-        this.fare=f;
+    public Train(String trainNumber, String trainName, seats available, seats booked, String source, String destination, float fare) {
+        this.trainNumber = trainNumber;
+        this.trainName = trainName;
+        this.available = available;
+        this.booked = booked;
+        this.source = source;
+        this.destination = destination;
+        this.fare = fare;
+    }
+
+    public void printInfoOfTrain(){
+        System.out.println("Train Number is "+this.trainNumber);
+        System.out.println("Train Name is "+this.trainName);
+        System.out.println(String.format("Available seats are class A=%d, class B=%d, class C=%d",this.available.classA,this.available.classB,this.available.classC ));
+        System.out.println(String.format("Booked seats are class A=%d, class B=%d, class C=%d",this.booked.classA,this.booked.classB,this.booked.classC ));
+        System.out.println("Source= "+this.source);
+        System.out.println("Destination= "+this.destination);
+        System.out.println("Fair is "+this.fare);
     }
 }
